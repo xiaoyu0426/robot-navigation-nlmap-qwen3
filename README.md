@@ -71,7 +71,7 @@ pip install tensorflow  # 用于NLMap
 
 ### 1. Qwen3-4B 模型下载
 
-本项目使用 Qwen3-4B-Instruct 模型，您需要从以下途径获取：
+本项目使用 Qwen3-4B 模型，您需要从以下途径获取：
 
 #### 方法一：从 Hugging Face 下载
 
