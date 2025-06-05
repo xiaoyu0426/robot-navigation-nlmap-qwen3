@@ -108,7 +108,8 @@ Qwen3-main/Qwen3-models/
 
 #### 方式一：真实数据收集（需要Boston Dynamics Spot机器人）
 
-如果您有Boston Dynamics Spot机器人，可以实时收集RGB-D和位姿数据：
+如果您有符合要求的机器人，可以实时收集RGB-D和位姿数据：
+#参考nlmap_spot-main/README.md文件
 
 1. **环境变量设置**（可选）：
    ```bash
@@ -145,16 +146,11 @@ Qwen3-main/Qwen3-models/
    ```
    nlmap_spot-main/unline_data/
    └── cit121_115/
-       ├── color/              # RGB 图像
-       │   ├── color_0.jpg
-       │   ├── color_1.jpg
-       │   └── ...
-       ├── depth/              # 深度图像
-       │   ├── depth_0.png
-       │   ├── depth_1.png
-       │   └── ...
-       ├── poses.txt           # 相机位姿信息
-       └── intrinsics.txt      # 相机内参矩阵
+       ├── color_0.jpg, color_1.jpg, ...    # RGB 图像
+       ├── depth_0, depth_1, ...            # 深度数据（pickle格式）
+       ├── combined_0.jpg, combined_1.jpg, ... # RGB+深度可视化
+       ├── pointcloud.pcd                   # 点云数据
+       └── pose_data.pkl                    # 位姿数据
    ```
 
 3. **配置文件设置**：
