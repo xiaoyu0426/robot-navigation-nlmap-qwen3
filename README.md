@@ -53,18 +53,109 @@ pip install tensorflow  # 用于NLMap
 └── README.md                        # 项目说明
 ```
 
-## 🎯 快速开始
+## 📦 模型下载和数据准备
 
-### 1. 模型准备
+### 1. Qwen3-4B 模型下载
 
-确保Qwen3-4B模型已下载到正确位置：
+本项目使用 Qwen3-4B-Instruct 模型，您需要从以下途径获取：
+
+#### 方法一：从 Hugging Face 下载
+
+```bash
+# 使用 git-lfs 克隆模型
+git lfs install
+git clone https://huggingface.co/Qwen/Qwen2.5-4B-Instruct Qwen3-main/Qwen3-models
+```
+
+#### 方法二：使用 Python 下载
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+# 下载并保存模型
+model_name = "Qwen/Qwen2.5-4B-Instruct"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+# 保存到本地
+tokenizer.save_pretrained("./Qwen3-main/Qwen3-models")
+model.save_pretrained("./Qwen3-main/Qwen3-models")
+```
+
+#### 方法三：手动下载
+
+1. 访问 [Qwen2.5-4B-Instruct](https://huggingface.co/Qwen/Qwen2.5-4B-Instruct)
+2. 下载所有模型文件到 `Qwen3-main/Qwen3-models/` 目录
+3. 确保目录结构如下：
+
 ```
 Qwen3-main/Qwen3-models/
 ├── config.json
-├── model-*.safetensors
+├── generation_config.json
+├── model-00001-of-00003.safetensors
+├── model-00002-of-00003.safetensors
+├── model-00003-of-00003.safetensors
+├── model.safetensors.index.json
 ├── tokenizer.json
-└── ...
+├── tokenizer_config.json
+├── vocab.json
+└── merges.txt
 ```
+
+### 2. 离线数据集准备
+
+本项目使用离线数据集进行物品检测和定位演示。
+
+#### 下载数据集
+
+**Google Drive 链接**: [nlmap_spot_data](https://drive.google.com/drive/folders/1zPUWyU7L6PBMpOTdUIQV_KG6yMhS1-dz)
+
+#### 数据集结构
+
+下载后，将数据解压到 `nlmap_spot-main/unline_data/` 目录下：
+
+```
+nlmap_spot-main/unline_data/
+└── cit121_115/
+    ├── color/              # RGB 图像
+    │   ├── color_0.jpg
+    │   ├── color_1.jpg
+    │   └── ...
+    ├── depth/              # 深度图像
+    │   ├── depth_0.png
+    │   ├── depth_1.png
+    │   └── ...
+    ├── poses.txt           # 相机位姿信息
+    └── intrinsics.txt      # 相机内参
+```
+
+#### 数据集说明
+
+- **color/**: 包含环境的RGB图像，用于物品检测
+- **depth/**: 对应的深度图像，用于3D定位
+- **poses.txt**: 每张图像对应的相机位姿（位置和朝向）
+- **intrinsics.txt**: 相机内参矩阵
+
+### 3. 验证安装
+
+完成模型和数据准备后，运行以下命令验证：
+
+```bash
+# 检查模型文件
+ls Qwen3-main/Qwen3-models/
+
+# 检查数据集
+ls nlmap_spot-main/unline_data/cit121_115/
+
+# 测试模型加载
+python -c "from transformers import AutoTokenizer; print('模型加载测试成功')"
+```
+
+## 🎯 快速开始
+
+### 1. 环境准备
+
+确保已完成上述模型下载和数据准备步骤。
 
 ### 2. 运行演示
 
