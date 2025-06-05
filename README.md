@@ -1,7 +1,7 @@
 # NLMap + Qwen3 机器人导航与物品提议系统
 
 **作者**: Xiao Yujie  
-**学校**: Sustech  
+**学校**: SUSTech  
 **邮箱**: 12433332@mail.sustech.edu.cn  
 **日期**: 2025/06/05  
 
