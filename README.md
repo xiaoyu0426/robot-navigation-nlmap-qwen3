@@ -64,7 +64,7 @@ pip install tensorflow  # 用于NLMap
 ```bash
 # 使用 git-lfs 克隆模型
 git lfs install
-git clone https://huggingface.co/Qwen/Qwen2.5-4B-Instruct Qwen3-main/Qwen3-models
+git clone https://huggingface.co/Qwen/Qwen3-4B Qwen3-main/Qwen3-models
 ```
 
 #### 方法二：使用 Python 下载
@@ -73,7 +73,7 @@ git clone https://huggingface.co/Qwen/Qwen2.5-4B-Instruct Qwen3-main/Qwen3-model
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # 下载并保存模型
-model_name = "Qwen/Qwen2.5-4B-Instruct"
+model_name = "Qwen/Qwen3-4B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
@@ -84,7 +84,7 @@ model.save_pretrained("./Qwen3-main/Qwen3-models")
 
 #### 方法三：手动下载
 
-1. 访问 [Qwen2.5-4B-Instruct](https://huggingface.co/Qwen/Qwen2.5-4B-Instruct)
+1. 访问 [Qwen3-4B](https://huggingface.co/Qwen/Qwen3-4B)
 2. 下载所有模型文件到 `Qwen3-main/Qwen3-models/` 目录
 3. 确保目录结构如下：
 
