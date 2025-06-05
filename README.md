@@ -102,39 +102,76 @@ Qwen3-main/Qwen3-models/
 └── merges.txt
 ```
 
-### 2. 离线数据集准备
+### 2. 数据集准备
 
-本项目使用离线数据集进行物品检测和定位演示。
+本项目支持两种数据获取方式：使用真实机器人收集数据或使用预处理的离线数据集。
 
-#### 下载数据集
+#### 方式一：真实数据收集（需要Boston Dynamics Spot机器人）
 
-**Google Drive 链接**: [nlmap_spot_data](https://drive.google.com/drive/folders/1zPUWyU7L6PBMpOTdUIQV_KG6yMhS1-dz)
+如果您有Boston Dynamics Spot机器人，可以实时收集RGB-D和位姿数据：
 
-#### 数据集结构
+1. **环境变量设置**（可选）：
+   ```bash
+   export BOSDYN_CLIENT_USERNAME=your_username
+   export BOSDYN_CLIENT_PASSWORD=your_password
+   ```
 
-下载后，将数据解压到 `nlmap_spot-main/unline_data/` 目录下：
+2. **数据收集**：
+   ```bash
+   cd nlmap_spot-main/spot_utils
+   python get_depth_color_pose.py
+   ```
 
-```
-nlmap_spot-main/unline_data/
-└── cit121_115/
-    ├── color/              # RGB 图像
-    │   ├── color_0.jpg
-    │   ├── color_1.jpg
-    │   └── ...
-    ├── depth/              # 深度图像
-    │   ├── depth_0.png
-    │   ├── depth_1.png
-    │   └── ...
-    ├── poses.txt           # 相机位姿信息
-    └── intrinsics.txt      # 相机内参
-```
+3. **数据存储结构**：
+   ```
+   your_data_directory/
+   ├── color_0.jpg, color_1.jpg, ...    # RGB图像
+   ├── depth_0.pkl, depth_1.pkl, ...    # 深度数据（pickle格式）
+   ├── combined_0.jpg, combined_1.jpg, ... # RGB+深度可视化
+   └── pose_data.pkl                     # 位姿数据
+   ```
+
+#### 方式二：离线数据集（推荐用于演示）
+
+如果没有Spot机器人，可以使用预处理的离线数据集：
+
+1. **下载数据集**：
+   
+   **Google Drive 链接**: [nlmap_spot_data](https://drive.google.com/drive/folders/1zPUWyU7L6PBMpOTdUIQV_KG6yMhS1-dz)
+
+2. **数据集结构**：
+   
+   下载后，将数据解压到 `nlmap_spot-main/unline_data/` 目录下：
+   ```
+   nlmap_spot-main/unline_data/
+   └── cit121_115/
+       ├── color/              # RGB 图像
+       │   ├── color_0.jpg
+       │   ├── color_1.jpg
+       │   └── ...
+       ├── depth/              # 深度图像
+       │   ├── depth_0.png
+       │   ├── depth_1.png
+       │   └── ...
+       ├── poses.txt           # 相机位姿信息
+       └── intrinsics.txt      # 相机内参矩阵
+   ```
+
+3. **配置文件设置**：
+   
+   在配置文件中设置 `use_robot=False` 以使用离线模式：
+   ```ini
+   [robot]
+   use_robot = False
+   ```
 
 #### 数据集说明
 
-- **color/**: 包含环境的RGB图像，用于物品检测
-- **depth/**: 对应的深度图像，用于3D定位
-- **poses.txt**: 每张图像对应的相机位姿（位置和朝向）
-- **intrinsics.txt**: 相机内参矩阵
+- **color/**: 包含环境的RGB图像，用于物品检测和视觉特征提取
+- **depth/**: 对应的深度图像，用于3D空间定位和点云生成
+- **poses.txt**: 每张图像对应的相机位姿（位置和朝向），格式为位置(x,y,z)和四元数(w,x,y,z)
+- **intrinsics.txt**: 相机内参矩阵，包含焦距和主点坐标信息
+- **pose_data.pkl**: 位姿数据的pickle格式，包含详细的位置、四元数、旋转矩阵和欧拉角信息
 
 ### 3. 验证安装
 
