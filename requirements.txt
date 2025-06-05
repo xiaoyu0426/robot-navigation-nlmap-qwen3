@@ -1,0 +1,23 @@
+# Core dependencies
+torch>=2.0.0
+transformers>=4.35.0
+numpy>=1.21.0
+opencv-python>=4.5.0
+Pillow>=8.0.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+
+# NLMap dependencies
+tensorflow>=2.8.0
+open3d>=0.15.0
+matplotlib>=3.5.0
+
+# Utility dependencies
+configparser>=5.0.0
+json5>=0.9.0
+tqdm>=4.62.0
+requests>=2.25.0
+
+# Optional: for enhanced functionality
+# streamlit>=1.20.0  # for web interface
+# jupyter>=1.0.0     # for notebook demos

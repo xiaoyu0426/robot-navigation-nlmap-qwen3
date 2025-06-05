@@ -1,0 +1,101 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+PYRECORD
+
+# PyTorch
+*.pth
+*.pt
+*.ckpt
+
+# Transformers cache
+.cache/
+transformers_cache/
+
+# Model files (too large for git)
+Qwen3-main/Qwen3-models/*.safetensors
+Qwen3-main/Qwen3-models/pytorch_model.bin
+Qwen3-main/Qwen3-models/model.safetensors*
+
+# Data files
+*.zip
+*.rar
+*.tar.gz
+nlmap_spot-main/unline_data/*/
+!nlmap_spot-main/unline_data/.gitkeep
+
+# Logs and outputs
+*.log
+outputlog.txt
+*.mp4
+*.avi
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Conda
+.conda/
+
+# TensorFlow
+*.pb
+*.tflite
+
+# Temporary files
+*.tmp
+*.temp
+
+# Generated files
+offline_object_inventory.json
+
+# Source archives (keep originals separate)
+source_file/
+
+# Report files (optional, comment out if you want to include them)
+report_file/
+*.pdf
+*.pptx
+*.docx
