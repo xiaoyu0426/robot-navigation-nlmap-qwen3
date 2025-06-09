@@ -341,7 +341,7 @@ graph TD
 
 - **[Qwen3](https://github.com/QwenLM/Qwen)**: 阿里云开发的大语言模型，为本项目提供了强大的自然语言理解和推理能力
   - 论文: "Qwen Technical Report"
-  - 模型: Qwen3-4B-Instruct
+  - 模型: Qwen3-4B
   - 用途: 物品提议、任务规划、自然语言处理
 
 - **[NLMap](https://github.com/HaochenZ11/nlmap-spot)**: 自然语言空间语义映射系统
