@@ -21,7 +21,7 @@
 本项目提供了完整的演示视频，展示了基于自然语言的机器人导航系统的工作流程：
 
 <p align="center">
-  <video src="https://github.com/xiaoyu0426/robot-navigation-nlmap-qwen3/issues/2" controls width="800"></video>
+  <video src="https://github.com/user-attachments/assets/a7aa1db2-a8f5-4ff1-90df-140acca2940f" controls width="800"></video>
 </p>
 
 视频内容包括：
