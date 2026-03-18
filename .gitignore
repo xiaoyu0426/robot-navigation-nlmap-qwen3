@@ -48,6 +48,7 @@ nlmap_spot-main/unline_data/*/
 outputlog.txt
 *.mp4
 *.avi
+!nlmap_qwen3_demo_v2.mp4
 
 # IDE
 .vscode/
