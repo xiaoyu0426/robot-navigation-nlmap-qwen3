@@ -20,7 +20,9 @@
 
 本项目提供了完整的演示视频，展示了基于自然语言的机器人导航系统的工作流程：
 
-**演示视频**: [nlmap_qwen3_demo_v2.mp4](./nlmap_qwen3_demo_v2.mp4)
+<p align="center">
+  <video src="https://github.com/xiaoyu0426/robot-navigation-nlmap-qwen3/raw/main/nlmap_qwen3_demo_v2.mp4" controls width="800"></video>
+</p>
 
 视频内容包括：
 - Qwen3-4B模型进行物品推理和提议
