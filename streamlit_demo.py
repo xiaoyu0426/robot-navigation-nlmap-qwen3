@@ -13,7 +13,7 @@ import json
 from datetime import datetime
 
 # 添加项目路径
-sys.path.append('./nlmap_spot-main')
+sys.path.insert(0, './src/nlmap')
 
 try:
     from saycan_qwen3 import Qwen3ObjectProposer

@@ -31,24 +31,24 @@ PYRECORD
 .cache/
 transformers_cache/
 
-# Model files (too large for git)
-Qwen3-main/Qwen3-models/*.safetensors
-Qwen3-main/Qwen3-models/pytorch_model.bin
-Qwen3-main/Qwen3-models/model.safetensors*
+# Model files (large files, managed by git lfs or submodule)
+models/Qwen3-models/*.safetensors
+models/Qwen3-models/*.bin
+models/Qwen3-models/model.safetensors*
 
 # Data files
 *.zip
 *.rar
 *.tar.gz
-nlmap_spot-main/unline_data/*/
-!nlmap_spot-main/unline_data/.gitkeep
+src/nlmap/unline_data/*
+src/nlmap/data/*
 
-# Logs and outputs
+# Logs
 *.log
-outputlog.txt
-*.mp4
-*.avi
-!nlmap_qwen3_demo_v2.mp4
+output*.txt
+
+# Media files (large videos, managed by git lfs)
+# See .gitattributes for git lfs configuration
 
 # IDE
 .vscode/
@@ -91,12 +91,3 @@ venv.bak/
 
 # Generated files
 offline_object_inventory.json
-
-# Source archives (keep originals separate)
-source_file/
-
-# Report files (optional, comment out if you want to include them)
-report_file/
-*.pdf
-*.pptx
-*.docx
